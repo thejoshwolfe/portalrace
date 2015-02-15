@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="main">
   <head>
-    <title>DKC2 Race -</title>
+    <title>Portal Race -</title>
     <link rel="stylesheet" href="zzzzzzzzzzzz.css">
     <script src="angular.js"></script>
     <script src="zrt.js"></script>
@@ -20,10 +20,10 @@
       <button ng-click="save()">Save</button>
       <button ng-click="startGame()">Start Game</button>
       <br>
-      <img src="img/lol/splash.gif" style="height:400px">
-      <img src="img/lol/dk_barrel.gif" style="height:150px">
-      <img src="img/lol/kixie.gif" style="height:400px">
-      <img src="img/lol/did.gif" style="height:150px">
+      <img src="img/lol/walking.gif" style="height:300px">
+      <img src="img/lol/falling.gif" style="height:300px">
+      <img src="img/lol/glados.gif" style="height:150px">
+      <img src="img/lol/flying.gif" style="height:300px">
     </div>
     <div ng-show="state.gameState == 'race'">
       <img src="img/standby.png" id="light-standby">
@@ -34,16 +34,16 @@
       <span id="clock" style="font-size:200px;"></span>
       <button ng-show="readyToStart()" ng-click="readySetGo()" style="width:100%; font-size:50px;">
         <div style="position: relative; left: 0; top: 0;">
-          <img src="img/logo.png" class="fadeout" style="position: relative; top: 0; left: 0; width: 200px;">
+          <img src="img/logo.jpg" class="fadeout" style="position: relative; top: 0; left: 0; height: 200px;">
           <img ng-src="{{ currentCheckpoint().img_src }}" class="fadein" style="position: absolute; top: 35%; left: 40%; max-width: 140px;">
         </div>
         START GO!!!!!!
       </button>
-      <img ng-show="isGameOver()" src="img/lol/done.png">
+      <img ng-show="isGameOver()" src="img/lol/the-cake.jpg">
       <table>
         <tr>
           <th>
-            <img src="img/checkpoint.gif" style="width:50px">
+            <img src="img/cube.png" style="width:60px">
           </th>
           <th ng-repeat="checkpoint in state.checkpoints">
             <img ng-src="{{checkpoint.img_src}}" style="max-width: 60px">
@@ -88,9 +88,10 @@
         </tr>
       </table>
       <br>
-      <img src="img/lol/pals.jpg" style="height:300px">
-      <img src="img/lol/links.gif" style="height:300px">
-      <img src="img/lol/krool.jpg" style="height:300px">
+      <img src="img/lol/cake.jpg" style="height:300px">
+      <img src="img/lol/camera.gif" style="height:150px">
+      <img src="img/lol/icons.jpg" style="height:300px">
+      <img src="img/lol/science.gif" style="height:300px">
       <br>
       <button ng-click="backToSetup()">Back</button>
     </div>

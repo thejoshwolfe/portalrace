@@ -4,8 +4,7 @@ window.APP = window.angular.module('main', []).controller('MainCtrl', function($
   var mood_music_audio = new Audio("wrong-game.ogg");
   mood_music_audio.loop = true;
   var huzzah_audio = [
-    new Audio("diddywins.ogg"),
-    new Audio("dixiewins.ogg"),
+    new Audio("fans.ogg"),
   ];
   var requestAnimationFrame = window.requestAnimationFrame;
 
@@ -35,28 +34,16 @@ window.APP = window.angular.module('main', []).controller('MainCtrl', function($
     gameState: 'setup',
     checkpoints: [
       {
-        name: "Gangplank Galleon",
-        img_src: "img/krow.png",
+        name: "Chamber 11",
+        img_src: "img/orange-portal.png",
       },
       {
-        name: "Crocodile Cauldron",
-        img_src: "img/kleaver.png",
+        name: "Chamber 18",
+        img_src: "img/turret.png",
       },
       {
-        name: "Krem Quay",
-        img_src: "img/kudgel.png",
-      },
-      {
-        name: "Krazy Kremland",
-        img_src: "img/kingzing.png",
-      },
-      {
-        name: "Gloomy Gulch",
-        img_src: "img/kreepykrow.png",
-      },
-      {
-        name: "K. Rool",
-        img_src: "img/krool.png",
+        name: "Glados",
+        img_src: "img/glados.png",
       },
     ],
     current_checkpoint: 0,
@@ -130,7 +117,7 @@ window.APP = window.angular.module('main', []).controller('MainCtrl', function($
       $scope.state.current_checkpoint += 1;
     }
     saveState();
-    var audio = huzzah_audio[Math.floor(Math.random() * 2)];
+    var audio = huzzah_audio[Math.floor(Math.random() * huzzah_audio.length)];
     audio.play();
   };
 
@@ -177,7 +164,7 @@ window.APP = window.angular.module('main', []).controller('MainCtrl', function($
     return rupees;
   };
 
-  loadState(localStorage.dkc2race);
+  loadState(localStorage.portalrace);
 
   requestAnimationFrame(function animateClock() {
     var clock = document.getElementById("clock");
@@ -292,7 +279,7 @@ window.APP = window.angular.module('main', []).controller('MainCtrl', function($
 
   function saveState() {
     sortPeople();
-    localStorage.dkc2race = window.angular.toJson($scope.state);
+    localStorage.portalrace = window.angular.toJson($scope.state);
     playPauseMusic();
   }
 
@@ -313,7 +300,7 @@ window.APP = window.angular.module('main', []).controller('MainCtrl', function($
 
   $scope.resetState = function() {
     if (confirm("delete all 50 states?")) {
-      delete localStorage.dkc2race;
+      delete localStorage.portalrace;
       location.href = location.href;
     }
   };
@@ -321,9 +308,9 @@ window.APP = window.angular.module('main', []).controller('MainCtrl', function($
   function currentTitle() {
     if ($scope.state.gameState === "race") {
       var checkpoint = $scope.currentCheckpoint();
-      if (checkpoint) return checkpoint.name + " - DKC2 Race - ";
+      if (checkpoint) return checkpoint.name + " - Portal Race - ";
     }
-    return "DKC2 Race - ";
+    return "Portal Race - ";
   }
 
   var marqueeIndex = 0;
