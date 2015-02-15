@@ -30,6 +30,21 @@ window.APP = window.angular.module('main', []).controller('MainCtrl', function($
         times: [],
         profile_img: "img/faces/sam.png",
       },
+      {
+        name: "Melanie",
+        times: [],
+        profile_img: "img/faces/melanie.png",
+      },
+      {
+        name: "James",
+        times: [],
+        profile_img: "img/faces/james.png",
+      },
+      {
+        name: "Mike",
+        times: [],
+        profile_img: "img/faces/mike.png",
+      },
     ],
     gameState: 'setup',
     checkpoints: [
@@ -371,9 +386,8 @@ window.APP.directive('rupeeDisplay', function() {
       elem[0].innerHTML = "";
 
       var units = [
-        {name: "blue", value: 3},
-        {name: "green", value: 2},
-        {name: "red", value: 1},
+        {name: "cube.png", value: 5},
+        {name: "cake-icon.png", value: 1},
       ];
 
       for (var i = 0; i < units.length; i++) {
@@ -384,7 +398,7 @@ window.APP.directive('rupeeDisplay', function() {
 
       function makeImgs(count, color_name) {
         for (var i = 0; i < count; i++) {
-          elem.append('<img src="img/balloon-' + color_name + '.gif">');
+          elem.append('<img src="img/' + color_name + '">');
         }
       }
     }
